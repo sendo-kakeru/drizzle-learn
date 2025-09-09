@@ -1,11 +1,12 @@
 {
   "name": "drizzle-learn",
   "private": true,
-  "scripts": {
-  },
+  "scripts": {},
   "packageManager": "pnpm@10.9.0",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.3",
