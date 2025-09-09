@@ -23,15 +23,24 @@ importers:
 
   packages/api:
     dependencies:
+      '@hono/valibot-validator':
+        specifier: ^0.5.3
+        version: 0.5.3(hono@4.9.6)(valibot@1.1.0(typescript@5.9.2))
       '@repo/db':
         specifier: workspace:*
         version: link:../db
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../shared
       drizzle-orm:
         specifier: ^0.44.5
         version: 0.44.5(@cloudflare/workers-types@4.20250909.0)(@types/pg@8.15.5)(pg@8.16.3)
       hono:
         specifier: ^4.9.6
         version: 4.9.6
+      valibot:
+        specifier: ^1.1.0
+        version: 1.1.0(typescript@5.9.2)
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.20250909.0
@@ -47,10 +56,31 @@ importers:
         version: 4.34.0(@cloudflare/workers-types@4.20250909.0)
 
   packages/db:
-    dependencies:
+    devDependencies:
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@repo/tsup-config':
+        specifier: workspace:*
+        version: link:../tsup-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      drizzle-kit:
+        specifier: ^0.31.4
+        version: 0.31.4
       drizzle-orm:
         specifier: ^0.44.5
         version: 0.44.5(@cloudflare/workers-types@4.20250909.0)(@types/pg@8.15.5)(pg@8.16.3)
+      drizzle-valibot:
+        specifier: ^0.4.2
+        version: 0.4.2(drizzle-orm@0.44.5(@cloudflare/workers-types@4.20250909.0)(@types/pg@8.15.5)(pg@8.16.3))(valibot@1.1.0(typescript@5.9.2))
+      valibot:
+        specifier: ^1.1.0
+        version: 1.1.0(typescript@5.9.2)
+
+  packages/shared:
+    dependencies:
       valibot:
         specifier: ^1.1.0
         version: 1.1.0(typescript@5.9.2)
@@ -61,12 +91,6 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
-      '@types/node':
-        specifier: ^24.3.1
-        version: 24.3.1
-      drizzle-kit:
-        specifier: ^0.31.4
-        version: 0.31.4
 
   packages/tsup-config: {}
 
@@ -472,6 +496,12 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@hono/valibot-validator@0.5.3':
+    resolution: {integrity: sha512-91wjmjDvrTdEm2ZcuCyLBghtld78QoLEduzfkqLo1L74n6sqqoVfc0gDfmju1Ar6w1eK8Q0UyIubrtj4KMWVnQ==}
+    peerDependencies:
+      hono: '>=3.9.0'
+      valibot: ^1.0.0 || ^1.0.0-beta.4 || ^1.0.0-rc
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -935,6 +965,12 @@ packages:
         optional: true
       sqlite3:
         optional: true
+
+  drizzle-valibot@0.4.2:
+    resolution: {integrity: sha512-tzjT7g0Di/HX7426marIy8IDtWODjPgrwvgscdevLQRUe5rzYzRhx6bDsYLdDFF9VI/eaYgnjNeF/fznWJoUjg==}
+    peerDependencies:
+      drizzle-orm: '>=0.36.0'
+      valibot: '>=1.0.0-beta.7'
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -1664,6 +1700,11 @@ snapshots:
   '@esbuild/win32-x64@0.25.4':
     optional: true
 
+  '@hono/valibot-validator@0.5.3(hono@4.9.6)(valibot@1.1.0(typescript@5.9.2))':
+    dependencies:
+      hono: 4.9.6
+      valibot: 1.1.0(typescript@5.9.2)
+
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
       '@img/sharp-libvips-darwin-arm64': 1.0.4
@@ -1854,6 +1895,7 @@ snapshots:
   '@types/node@24.3.1':
     dependencies:
       undici-types: 7.10.0
+    optional: true
 
   '@types/pg@8.15.5':
     dependencies:
@@ -1953,6 +1995,11 @@ snapshots:
       '@cloudflare/workers-types': 4.20250909.0
       '@types/pg': 8.15.5
       pg: 8.16.3
+
+  drizzle-valibot@0.4.2(drizzle-orm@0.44.5(@cloudflare/workers-types@4.20250909.0)(@types/pg@8.15.5)(pg@8.16.3))(valibot@1.1.0(typescript@5.9.2)):
+    dependencies:
+      drizzle-orm: 0.44.5(@cloudflare/workers-types@4.20250909.0)(@types/pg@8.15.5)(pg@8.16.3)
+      valibot: 1.1.0(typescript@5.9.2)
 
   eastasianwidth@0.2.0: {}
 
@@ -2438,7 +2485,8 @@ snapshots:
 
   ufo@1.6.1: {}
 
-  undici-types@7.10.0: {}
+  undici-types@7.10.0:
+    optional: true
 
   undici@7.15.0: {}
 
