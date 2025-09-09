@@ -10,15 +10,14 @@
 		"type-check": "tsc --noEmit"
 	},
 	"dependencies": {
+		"@repo/db": "workspace:*",
 		"drizzle-orm": "^0.44.5",
-		"hono": "^4.9.6",
-		"valibot": "^1.1.0"
+		"hono": "^4.9.6"
 	},
 	"devDependencies": {
-		"drizzle-kit": "^0.31.4",
-		"tsx": "^4.20.5",
-		"wrangler": "^4.4.0",
+		"@cloudflare/workers-types": "^4.20250909.0",
 		"@repo/tsup-config": "workspace:*",
-		"@repo/typescript-config": "workspace:*"
+		"@repo/typescript-config": "workspace:*",
+		"wrangler": "^4.4.0"
 	}
 }
