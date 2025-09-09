@@ -12,13 +12,13 @@
 	"dependencies": {
 		"drizzle-orm": "^0.44.5",
 		"hono": "^4.9.6",
-		"pg": "^8.16.3",
 		"valibot": "^1.1.0"
 	},
 	"devDependencies": {
-		"@types/pg": "^8.15.5",
 		"drizzle-kit": "^0.31.4",
 		"tsx": "^4.20.5",
-		"wrangler": "^4.4.0"
+		"wrangler": "^4.4.0",
+		"@repo/tsup-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*"
 	}
 }

@@ -1,12 +1,11 @@
 {
+	"extends": "@repo/typescript-config/base.json",
 	"compilerOptions": {
+		"outDir": "./dist",
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"strict": true,
-		"skipLibCheck": true,
-		"lib": ["ESNext"],
-		"jsx": "react-jsx",
-		"jsxImportSource": "hono/jsx"
+		"lib": ["ESNext", "DOM"],
+		"types": ["@cloudflare/workers-types"]
 	}
 }
