@@ -1,21 +1,24 @@
 {
-  "name": "api",
-  "type": "module",
-  "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify",
-    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
-  },
-  "dependencies": {
-    "drizzle-orm": "^0.44.5",
-    "hono": "^4.9.6",
-    "pg": "^8.16.3",
-    "valibot": "^1.1.0"
-  },
-  "devDependencies": {
-    "@types/pg": "^8.15.5",
-    "drizzle-kit": "^0.31.4",
-    "tsx": "^4.20.5",
-    "wrangler": "^4.4.0"
-  }
+	"name": "@repo/api",
+	"type": "module",
+	"scripts": {
+		"dev": "wrangler dev",
+		"deploy": "wrangler deploy --minify",
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"lint": "biome check .",
+		"format": "biome check --fix --unsafe .",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"drizzle-orm": "^0.44.5",
+		"hono": "^4.9.6",
+		"pg": "^8.16.3",
+		"valibot": "^1.1.0"
+	},
+	"devDependencies": {
+		"@types/pg": "^8.15.5",
+		"drizzle-kit": "^0.31.4",
+		"tsx": "^4.20.5",
+		"wrangler": "^4.4.0"
+	}
 }
